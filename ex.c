@@ -22,9 +22,9 @@ int main(){
             y=rand()%111;
             s=x+y;
             printf("%d +%d=\n",x,y);
-            printf("Entrer le résultat\n");
+            printf("Entrer le rÃ©sultat\n");
             scanf("%d",res);
-            printf("Vous avez entré %d\n ",res);
+            printf("Vous avez entrÃ© %d\n ",res);
             if (res==s)
                 printf("Bravo");
             else
@@ -39,7 +39,7 @@ int main(){
             printf("Multiplication");
          else if (rep==4)
             printf("Tables des multiplications");
-                printf("choisir la table de multiplication de 1 à 10 :\n");
+                printf("choisir la table de multiplication de 1 Ã  10 :\n");
                 scanf("%d",n);
                 while((n>10)&&(n<1)){
                     printf("veuillez entrerun nombre entre 1 et 10:\n");
@@ -74,13 +74,13 @@ int main(){
                 break;
             case 2 :
                 printf("Soustraction\n");
-                user.score=soustraction();
+                user.score+=soustraction();
                 if (user.score>0)
                     printf("Bravo\n");
                 break;
             case 3 :
                 printf("Multiplication\n");
-                user.score=multiplication();
+                user.score+=multiplication();
                 if (user.score>0)
                     printf("Bravo\n");
                 break;
@@ -91,20 +91,20 @@ int main(){
                 scanf("%d",&n);
                 printf("la table de multiplication de %d\n",n);
                 tab_multi(n);
-                user.score=tab_multi_s();
+                user.score+=tab_multi_s(n);
                 if (user.score>0)
                     printf("Bravo\n");
                 break;
 
             case 5 :
                 printf("Divisions\n");
-                user.score=division();
+                user.score+=division();
                 if (user.score>0)
                     printf("Bravo\n");
                 break;
             case 6:
                 printf("Parite\n");
-                user.score=parite();
+                user.score+=parite();
                 if (user.score>0)
                     printf("Bravo\n");
                 break;
@@ -139,7 +139,7 @@ void sauvegarder_score(utilisateur user) {
         while (fgets(ligne, sizeof(ligne), fichierLecture)) {
             if (sscanf(ligne, "%[^;];%[^;];%d", nomLu, dateHeureLu, &scoreLu) == 3) {
                 if (strcmp(nomLu, user.nom) == 0) {
-                    // L'utilisateur existe, on écrit la nouvelle version
+                    // L'utilisateur existe, on Ã©crit la nouvelle version
                     fprintf(fichierEcriture, "%s;%s;%d\n", user.nom, user.temps, user.score);
                     trouve = 1;
                 } else {
@@ -151,7 +151,7 @@ void sauvegarder_score(utilisateur user) {
         fclose(fichierLecture);
     }
 
-    // Si l'utilisateur n'existait pas, on ajoute à la fin
+    // Si l'utilisateur n'existait pas, on ajoute Ã  la fin
     if (!trouve) {
         fprintf(fichierEcriture, "%s;%s;%d\n", user.nom, user.temps, user.score);
     }
